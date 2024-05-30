@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block cssfiles %}
+
+{% endblock %}
+{% block content %}
+    <style>
+        body {
+            background: lightblue !important;
+        }
+    </style>
+    <div style="background: aquamarine">
+
+
+        <h1 class="bg">Welcome My New World</h1>
+    </div>
+    {#    {% include 'components/sidebar.html' %}#}
+    <h1>{{ cityname }}</h1>
+    <div class="row">
+        {% for city in cityname %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: red;text-align: center">{{ city }}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        {#        <div class="col-md-4">#}
+        {#            <div class="card">#}
+        {#                <img src="..." class="card-img-top" alt="...">#}
+        {#                <div class="card-body">#}
+        {#                    <h5 class="card-title">Mumbai</h5>#}
+        {#                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of#}
+        {#                        the#}
+        {#                        card's content.</p>#}
+        {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {##}
+        {#        <div class="col-md-4">#}
+        {#            <div class="card"#}
+        {#            ">#}
+        {#            <img src="..." class="card-img-top" alt="...">#}
+        {#            <div class="card-body">#}
+        {#                <h5 class="card-title">Hyderabd</h5>#}
+        {#                <p class="card-text">Some quick example text to build on the card title and make up the bulk of#}
+        {#                    the#}
+        {#                    card's content.</p>#}
+        {#                <a href="#" class="btn btn-primary">Go somewhere</a>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+
+    </div>
+
+
+
+{% endblock content %}
