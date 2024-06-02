@@ -1,5 +1,8 @@
 from django.contrib import admin
 
+from order.models import my_places
+
+
 # Register your models here.
 
 
@@ -16,3 +19,7 @@ from django.contrib import admin
 # ==> Rroute paths, css, and bootstrap, and applications
 #
 # ==>
+
+@admin.register(my_places)
+class my_placesADmin(admin.ModelAdmin):
+    list_display = ['id']
