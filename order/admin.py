@@ -22,4 +22,4 @@ from order.models import my_places
 
 @admin.register(my_places)
 class my_placesADmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'location_name', 'location_description']
