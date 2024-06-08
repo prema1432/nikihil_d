@@ -4,6 +4,7 @@ from django.db import models
 
 # Create your models here.
 
+# crud == create , read , update delete==
 
 class my_places(models.Model):
     role_choices = (
@@ -24,7 +25,7 @@ class my_places(models.Model):
     price = models.PositiveIntegerField(default=1)
 
     sub_total = models.FloatField(default=5)
-    interests = models.JSONField(null=True, blank=True,default=list)
+    interests = models.JSONField(null=True, blank=True, default=list)
 
     # list_of_places = ArrayField
     website = models.URLField(null=True, blank=True)
@@ -38,9 +39,6 @@ class my_places(models.Model):
     # forrrignkey == student , school == schol - -- students,, studen == school - student ,
     # many to many key == student, teachers ==> school== class table ==>
     # one to one == s
-
-
-
 
     def __str__(self):
         # return self.location_name
