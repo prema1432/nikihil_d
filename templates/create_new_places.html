@@ -2,28 +2,31 @@
 
 {% block content %}
     <h1>Creating New Place</h1>
-
+<p style="color: red;text-align: center">{{ errors }}</p>
     <br>
-    <div style="display: block;margin:auto;text-align: center">
+    <div>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="text" name="location_name" placeholder="location_name"/>
-            <br>
-            <br>
-            <input type="text" name="location_description" placeholder="location_description"/>
-            <br>
-            <br>
-            <input type="file" name="location_image" placeholder="location_image"/>
-            <br>
-            <br>
-            <input type="number" name="age" placeholder="age"/>
-            <br>
-            <br>
-            <br>
-            <input type="submit" value="submit">
-            <br>
-            <br>
-            <br>
+            
+{#            <input type="text" name="location_name" placeholder="location_name"/>#}
+{#            <br>#}
+{#            <br>#}
+{#            <input type="text" name="location_description" placeholder="location_description"/>#}
+{#            <br>#}
+{#            <br>#}
+{#            <input type="file" name="location_image" placeholder="location_image"/>#}
+{#            <br>#}
+{#            <br>#}
+{#            <input type="number" name="age" placeholder="age"/>#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{#            <input type="submit" value="submit">#}
+{#            <br>#}
+{#            <br>#}
+{#            <br>#}
+{{ form.as_p }}
+            <input type="submit">
 
         </form>
     </div>

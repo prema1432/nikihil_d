@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if cityname == None %}
+        <p>{{ error }}</p>
+
+
+    {% else %}
+        <br>
+        <br>
+        <p>
+            Location Name : {{ cityname.location_name }}
+        </p>
+        <br>
+        <br>
+        <p>
+            Location Description : {{ cityname.location_description }}
+        </p>
+        <br>
+        <br>
+        <p>
+            Location age : {{ cityname.age }}
+        </p>
+        <br>
+        <br>
+
+        <p>
+            {% if cityname.location_image %}
+                <img style="height: 100px" src="{{ cityname.location_image.url }}" alt="">
+            {% else %}
+                No Images available
+            {% endif %}
+        </p>
+        <br>
+        <br>
+
+    {% endif %}
+{% endblock %}
