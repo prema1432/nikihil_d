@@ -1,8 +1,40 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-from order.forms import my_placesform
+from order.forms import my_placesform, MyLoginForm
 from order.models import my_places
 
+
+
+def login_view(request):
+    context={}
+    if request.method == 'POST':
+        form = MyLoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password) # valid crednatils
+            if user is not None:
+                login(request, user) # logging
+                return redirect('home')
+            else:
+                context["error"]="Invalid CreateUser"
+                context["form"] = MyLoginForm
+
+        else:
+            context["error"] = "Invalid CreateUser"
+            context["form"] = MyLoginForm
+
+    else:
+        context["form"] = MyLoginForm
+    return render(request,'login.html',context)
+
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
 
 # Create your views here.
 def welcome(request):
@@ -68,6 +100,13 @@ def create_new_places(request):
 
 # a=welcome(name="prrema",lop="opp")
 
+
+def place_delete(request,id):
+    places = get_object_or_404(my_places, id=id)
+    places.delete()
+    return redirect('home')
+
+@login_required
 def abouts(request):
     return render(request, 'about.html')
 
@@ -80,5 +119,5 @@ def locations(request):
     return render(request, 'locations.html')
 
 
-def login(request):
-    return render(request, 'login.html')
+# def login(request):
+#     return render(request, 'login.html')

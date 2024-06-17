@@ -50,6 +50,7 @@
                     <a href="{% url 'get_place' city.id %}">Add to cart</a>
                     <br>
                     <a class="btn btn-danger" href="{% url 'get_place_update' city.id %}">Update</a>
+                    <a class="btn btn-warning" href="{% url 'place_delete' city.id %}">Delete </a>
                     <div class="card-body">
                         <h5 class="card-title" style="color: red;text-align: center">{{ city }}</h5>
                         <p class="card-text">{{ city.location_description }}</p>

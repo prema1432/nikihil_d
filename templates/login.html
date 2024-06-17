@@ -3,5 +3,12 @@
 {#    <h1>Login My New World</h1>#}
 {#{% include 'components/sidebar.html' %}#}
 {#{% include 'components/navbar.html' %}#}
-    <h1>Haiiiii</h1>
+    <h1>Hai Login To Django World</h1>
+    {{ error }}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Login</button>
+
+    </form>
 {% endblock content2 %}
